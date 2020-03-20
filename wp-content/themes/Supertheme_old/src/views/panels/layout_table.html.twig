@@ -1,0 +1,26 @@
+<section class="table">
+    <div class="row columns">
+        {% if panel.table_title %}<h2>{{ panel.table_title }}</h2>{% endif %}
+    </div>
+    <div class="row columns">
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ panel.table_left_title }}</th>
+                    <th>{{ panel.table_right_title }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in panel.table_rows %}
+                    <tr>
+                        <td>{{ row.table_left_column }}</td>
+                        <td>{{ row.table_right_column }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="row columns">
+        <a href="{{ panel.table_button_link }}" class="warning button">Start Recruiting <i class="fa fa-angle-right"></i></a>
+    </div>
+</section>

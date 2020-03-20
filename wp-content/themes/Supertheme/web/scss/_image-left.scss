@@ -1,0 +1,10 @@
+.image-left {
+  @extend .image-right;
+  background-color: get-color(primary);
+  color: $white;
+  .content {
+    @include breakpoint(large) {
+      padding: $global-padding*4 !important;
+    }
+  }
+}

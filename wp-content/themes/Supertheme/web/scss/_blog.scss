@@ -1,0 +1,197 @@
+// Blog
+
+.blog,
+.category,
+.author,
+.search {
+    
+    .content-wrapper {
+     
+        > div {
+            background: transparent;   
+        }
+        
+    }
+    
+    .archive {
+        padding: $global-padding*3 0;   
+    }
+ 
+    @include breakpoint(medium) {
+        
+        #posts-container article {
+            width: 50%;
+            padding: 0 rem-calc(map-get($grid-column-gutter, medium) / 2) rem-calc(map-get($grid-column-gutter, medium));
+         }
+        
+    }
+    
+    
+    @include breakpoint(small only) {
+        #posts-container article {
+            position: static!important;
+            left: auto!important;
+            right: auto!important;
+        }
+    }
+    
+    article {
+        
+        margin-bottom: rem-calc(map-get($grid-column-gutter, medium));
+     
+        .wrap {
+            
+            border: 1px solid $light-gray;
+            
+            .name.small {
+                font-size: 80%;   
+            }
+         
+            .entry-content {
+                padding: rem-calc(map-get($grid-column-gutter, medium) / 2);
+                
+                h4 {
+                    line-height: 1.1;   
+                }
+            }
+            
+        }
+        
+    }
+     
+}
+
+
+.single-post {
+    
+    .header .row {
+        z-index: 2;
+    }
+    
+    ul.post-categories {
+        margin: 0 0 20px -12px;
+        text-align: center;
+        
+        li {
+            display: inline-block;
+            margin: 0 0 15px 12px;   
+        }
+        
+        a {
+            display: block;
+            padding: 12px 8px;
+            background-color: transparent;
+            text-align: center;
+            color: #fff;
+            font-size: 13px;
+            line-height: 1.5;
+            border: solid 2px #fff;
+            transition: ease all 0.3s;
+            letter-spacing: 1px;
+            
+            &:hover {
+                background-color: #fff;
+                color: $black;   
+            }
+         }
+    }
+    
+    .author {
+        position: absolute;
+        bottom: -15%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        z-index: 2;
+        
+        img {
+            border-radius: 100%;
+            margin-bottom: 5px;
+            border: 5px solid #fff;
+         }
+         
+         p {
+            font-size:20px;
+            line-height: 24px;  
+            margin: 0 auto; 
+         }
+    }
+    
+    section.post-type-post {
+         padding: $global-padding*6 0 $global-padding*3;   
+    }
+    
+    article {
+        
+        p {
+            line-height: 1.7;   
+        }
+        
+        p:first-child {
+            font-size: 22px;
+            line-height: 32px;  
+          }
+        
+        p:first-child:first-letter {
+            color: #4A4A4A;
+            font-size: 75px;
+            line-height: 42px; 
+            float: left;
+            padding-top: 8px;
+            padding-right: 8px;
+            padding-left: 3px;  
+        }   
+    }
+    
+    
+    .share .sharethis > span {
+        position: relative; 
+        
+        &::before {
+            font-family: FontAwesome;
+            color: #fefefe;
+            font-size: 1.05556rem;
+            position: absolute;
+            top: 50%!important;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    
+}
+
+
+.sidebar {
+ 
+    .widget_categories {
+     
+        ul {
+        margin: 0 0 20px -12px;
+         
+        li {
+            display: inline-block;
+            margin: 0 0 15px 12px;   
+        }
+        
+        a {
+            display: block;
+            padding: 12px 8px;
+            background-color: transparent;
+            text-align: center;
+            color: get-color(primary);;
+            font-size: 13px;
+            line-height: 1.5;
+            border: solid 2px get-color(primary);;
+            transition: ease all 0.3s;
+            letter-spacing: 1px;
+            
+            &:hover {
+                background-color: get-color(primary);;
+                color: $white;   
+            }
+         }
+    }
+        
+    }
+    
+}

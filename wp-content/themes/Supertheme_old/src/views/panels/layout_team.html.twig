@@ -1,0 +1,33 @@
+<section class="team" {% if panel.team_id %}id="{{ panel.team_id }}"{% endif %}>
+    <div class="row align-center">
+        <div class="small-12 large-10 columns">
+            <div class="row small-up-2 medium-up-3">
+                {% for member in panel.team_members %}
+                    <div class="column">
+                        <a data-fancybox data-src="#team-lightbox-{{ loop.index }}">
+                            <img src="{{ member.team_headshot.url }}" alt="{{ mamber.team_headshot.title }}" />
+                        </a>
+                        <h3>{{ member.team_name }}</h3>
+                        <div class="position">{{ member.team_position }}</div>
+                    </div>
+                    <div id="team-lightbox-{{ loop.index }}" class="team-lightbox">
+                        <div class="row">
+                            <div class="small-12 medium-6 large-4 columns">
+                                <img src="{{ member.team_headshot.url }}" alt="{{ mamber.team_headshot.title }}" />
+                                <div class="links">
+                                    {% if member.team_email %}<a href="mailto:{{ member.team_email }}" class="email"></a>{% endif %}
+                                    {% if member.team_linkedin %}<a href="{{ member.team_linkedin }}" class="linkedin" target="_blank"></a>{% endif %}
+                                </div>
+                            </div>
+                            <div class="small-12 medium-6 large-8 columns">
+                                <h3>{{ member.team_name }}</h3>
+                                <div class="position">{{ member.team_position }}</div>
+                                <div class="content">{{ member.team_content }}</div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

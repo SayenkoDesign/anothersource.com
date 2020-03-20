@@ -1,0 +1,211 @@
+@import "settings";
+@import "accessibility";
+@import "font-awesome";
+@import "foundation";
+@include foundation-everything(true);
+@import "supertheme";
+@import "navigation";
+@import "header";
+@import "contact";
+@import "footer";
+@import "success-stories";
+@import "prev-next";
+@import "hero";
+@import "navigation-columns";
+@import "stats";
+@import "icon-stats";
+@import "clients";
+@import "image-right";
+@import "image-left";
+@import "testimonials-slider";
+@import "centered-content";
+@import "content-grid";
+@import "table";
+@import "jobs-slider";
+@import "team";
+@import "content-icons";
+@import "blog";
+
+h1, h2, h3, h4, h5, h6 {
+  transition: font-size 500ms linear;
+}
+
+table thead th {
+  text-transform: uppercase;
+}
+
+[type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"],
+[type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"],
+[type="time"], [type="url"], [type="color"], textarea, select {
+  padding: rem-calc(10px) rem-calc(15px);
+  font-size: rem-calc(14px);
+}
+select {
+  padding-right: rem-calc(32px);
+}
+
+ul.check {
+  margin-left: 0;
+  li {
+    list-style-type: none;
+    line-height:rem-calc(41px);
+    &::before {
+      position: relative;
+      top: 4px;
+      content: "";
+      display: inline-block;
+      background-image: url('../images/checkmark-dark.png');
+      width: rem-calc(23px);
+      height: rem-calc(23px);
+      margin-right: rem-calc(8px);
+    }
+  }
+}
+.layout_image_left, .centered-content.background, .icon-stats {
+  ul.check li::before {
+    background-image: url('../images/checkmark-white.png');
+  }
+}
+
+ul.timeline {
+  text-align: left;
+  list-style-type: none;
+  margin-left: 0;
+  max-height: 50vh;
+  overflow: auto;
+  li {
+    padding-left: rem-calc(52px);
+    position: relative;
+    margin-bottom: rem-calc(22px);
+    line-height: rem-calc(24px);
+    &::before {
+      position: absolute;
+      top: 4px;
+      left: 0;
+      content: "";
+      display: inline-block;
+      width: rem-calc(22px);
+      height: rem-calc(22px);
+      background-color:  get-color(primary);
+      border-radius: 100%;
+    }
+    &::after {
+      position: absolute;
+      top: rem-calc(9px);
+      left: rem-calc(9px);
+      bottom: rem-calc(-30px);
+      width: rem-calc(4px);
+      background-color: get-color(primary);
+      content: "";
+      display: inline-block;
+    }
+    &:last-of-type::after {
+      display: none;
+    }
+  }
+}
+
+.scroll-top {
+  border-radius: 100%;
+}
+
+.fancybox-close-small {
+  width: rem-calc(24px);
+  height: rem-calc(26px);
+  background-image: url("../images/Close icon.png");
+  top: rem-calc(20px);
+  right: rem-calc(20px);
+  @include breakpoint(large) {
+    top: rem-calc(40px);
+    right: rem-calc(40px);
+  }
+  &:after {
+    display: none;
+  }
+}
+
+.layout_image_left, .centered-content.background, .icon-stats {
+  ul.timeline li {
+    &::before, &::after {
+      background-color: $white;
+    }
+  }
+}
+
+.error404 article {
+  text-align: center;
+  padding: $global-padding*4 0;
+}
+
+.slick-slide {
+  height: auto;
+}
+.slick-prev {
+  background-image: url("../images/arrow-icon-gray.png");
+  width: rem-calc(67px);
+  height: rem-calc(67px);
+  transform: scaleX(-1);
+  left: $global-padding;
+  top: calc(50% - 80px);
+  z-index: 1;
+  @include breakpoint(large){
+    left: rem-calc(200px);
+  }
+  &:hover, &:active, &:focus {
+    background-image: url("../images/arrow-icon-gray.png");
+  }
+  &::before {
+    display: none;
+  }
+}
+.slick-next {
+  background-image: url("../images/arrow-icon-gray.png");
+  width: rem-calc(67px);
+  height: rem-calc(67px);
+  right: $global-padding;
+  top: calc(50% - 80px);
+  transform: none;
+  z-index: 1;
+  @include breakpoint(large){
+    right: rem-calc(200px);
+  }
+  &:hover, &:active, &:focus {
+    background-image: url("../images/arrow-icon-gray.png");
+  }
+  &::before {
+    display: none;
+  }
+}
+
+.gform_wrapper {
+  ul { margin: 0; }
+  li { list-style-type: none; }
+  label { display: none; }
+  .button {
+    font-size: rem-calc(16px);
+    text-transform: uppercase;
+    font-weight: $global-weight-bold;
+    background-color: get-color(warning);
+    width: 100%;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $dark-gray;
+    opacity: 1;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: $dark-gray;
+    opacity: 1;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: $dark-gray;
+    opacity: 1;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: $dark-gray;
+    opacity: 1;
+  }
+  select {
+    color: $dark-gray;
+  }
+}

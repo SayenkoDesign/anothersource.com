@@ -1,0 +1,31 @@
+parameters:
+  wordpress.acf_path: "%template_dir%/app/config/acf"
+  wordpress.acf_menu: true
+  wordpress.theme_support:
+    - "html5"
+    - "post-thumbnails"
+  wordpress.translations: "%template_dir%/languages"
+  wordpress.image_sizes:
+    fullscreen: [1920, 1080, true]
+    headshot: [128, 128, true]
+  wordpress.menus:
+    primary_menu: "Primary Menu"
+  wordpress.sidebars:
+    - { id: "sample_sidebar", name: "sample sidebar", description: "sample sidebar managed by config file" }
+  wordpress.styles:
+    - { id: "google_fonts", source: "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Oswald:400,700|Raleway:400,400i,700,700i", deps: ~ }
+    - { id: "fancybox", source: "%template_uri%/web/libs/fancybox/dist/jquery.fancybox.css", deps: ~ }
+    - { id: "slick", source: "%template_uri%/web/stylesheets/slick.css", deps: ~ }
+    - { id: "slick-theme", source: "%template_uri%/web/stylesheets/slick-theme.css", deps: ["slick"] }
+    - { id: "motion", source: "%template_uri%/web/stylesheets/motion-ui.css", deps: [] }
+    - { id: "app", source: "%template_uri%/web/stylesheets/app.css", deps: ["google_fonts", "motion", "fancybox", "slick-theme"] }
+  wordpress.scripts:
+    - { id: "app", source: "%template_uri%/web/scripts-min/app.min.js", deps: ["masonry"], header: false }
+  wordpress.post_types:
+    success_stories:
+      public: true
+      has_archive: true
+      labels: {name: "Success Stories", singular_name: "Success Story"}
+      menu_position: 6
+      menu_icon: "dashicons-portfolio"
+      supports: ["title", "editor", "thumbnail"]

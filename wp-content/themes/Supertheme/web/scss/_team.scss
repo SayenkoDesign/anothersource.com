@@ -1,0 +1,67 @@
+.layout_team {
+  padding: $global-padding*5 0 0;
+  text-align: center;
+  background-color: $light-gray;
+  .column {
+    a {
+      display: block;
+    }
+    img {
+      border-radius: 100%;
+      width: 100%;
+      margin-bottom: $global-padding;
+      max-width: rem-calc(260px);
+    }
+    div {
+      color: $dark-gray;
+    }
+    .position {
+      margin-bottom: rem-calc(100px);
+    }
+  }
+}
+.team-lightbox {
+  display: none;
+  max-width: rem-calc(860px);
+  padding: $global-padding*2;
+  .large-4 {
+    text-align: center;
+    img {
+      border-radius: 100%;
+      border: 4px solid $light-gray;
+      margin-bottom: rem-calc(16px);
+    }
+    a:focus {
+      outline: none;
+      border: none;
+    }
+    .email {
+      display: inline-block;
+      margin-right: rem-calc(20px);
+      width: rem-calc(48px);
+      height: rem-calc(48px);
+      background-image: url("../images/email.png");
+    }
+    .linkedin {
+      display: inline-block;
+      width: rem-calc(48px);
+      height: rem-calc(48px);
+      background-image: url("../images/linkedin.png");
+    }
+  }
+  .large-8 {
+    color: $dark-gray;
+    h4 {
+      margin-bottom: rem-calc(10px);
+    }
+    .position {
+      margin-bottom: rem-calc(30px);
+    }
+    .content {
+      h1, h2, h3, h4, h5, h5 {
+        font-weight: $global-weight-bold;
+        margin-bottom: rem-calc(10px);
+      }
+    }
+  }
+}

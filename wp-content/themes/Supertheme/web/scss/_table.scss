@@ -1,0 +1,56 @@
+.table {
+  padding: $global-padding*2 0;
+  text-align: center;
+  h2 {
+    margin-bottom: rem-calc(30px);
+  }
+  table {
+    max-width: rem-calc(650px);
+    margin: 0 auto rem-calc(40px);
+    border-collapse: collapse;
+    border: none;
+    thead {
+      background-color: transparent;
+      th {
+        padding: rem-calc(16px) rem-calc(28px);
+        font-size: rem-calc(26px);
+        font-weight: $global-weight-normal;
+        line-height: rem-calc(31px);
+      }
+      th:first-of-type {
+        width: 100%;
+      }
+      th:last-of-type {
+        text-align: right;
+        white-space:nowrap;
+      }
+    }
+    td {
+      font-size: rem-calc(22px);
+      line-height: rem-calc(45px);
+      padding: rem-calc(12px) rem-calc(28px);
+    }
+    td:last-of-type {
+      text-align: center;
+    }
+  }
+  .button {
+    font-size: rem-calc(16px);
+    font-weight: $global-weight-bold;
+    line-height: rem-calc(22px);
+    color: $white;
+    padding: rem-calc(9px) rem-calc(25px);
+    text-transform: uppercase;
+    margin: 0;
+    .fa {
+      position: relative;
+      font-size: rem-calc(25px);
+      line-height: rem-calc(22px);
+      top: rem-calc(2.5px);
+      padding-left: rem-calc(24px);
+    }
+    &:hover {
+      color: $white;
+    }
+  }
+}

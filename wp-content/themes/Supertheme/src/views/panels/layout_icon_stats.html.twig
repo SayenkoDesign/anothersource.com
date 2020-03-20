@@ -1,0 +1,16 @@
+<section class="icon-stats" {% if panel.icon_stats_id %}id="{{ panel.icon_stats_id }}"{% endif %}
+>
+    {% if panel.icon_stats_title %}
+        <div class="row columns">
+            <h2>{{ panel.icon_stats_title }}</h2>
+        </div>
+    {% endif %}
+    <div class="row small-up-1 medium-up-2 large-up-4">
+        {% for stat in panel.icon_stats %}
+            <div class="column">
+                <div class="stat"><img src="{{ stat.icon_stat_image.url }}" alt="{{ stat.icon_stat_image.title }}"/></div>
+                <div class="content">{{ stat.icon_stat_content }}</div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

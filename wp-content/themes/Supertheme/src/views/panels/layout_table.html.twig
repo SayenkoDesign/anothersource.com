@@ -1,0 +1,27 @@
+<section class="table">
+    <div class="row columns">
+        {% if panel.table_title %}<h2>{{ panel.table_title }}</h2>{% endif %}
+    </div>
+    <div class="row columns">
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ panel.table_left_title }}</th>
+                    <th>{{ panel.table_right_title }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in panel.table_rows %}
+                    <tr>
+                        <td>{{ row.table_left_column }}</td>
+                        <td>{{ row.table_right_column }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p style="max-width: 36.11111rem; margin-top: -15px; margin-left: auto; margin-right: auto;"><strong>*Another Source offers a discount to help nonprofits</strong> attract talent and expedite the recruitment process. For pricing details, please reach out using the contact form below.</p>
+    </div>
+    <div class="row columns">
+        <a href="{{ panel.table_button_link }}" class="warning button">Start Recruiting <i class="fa fa-angle-right"></i></a>
+    </div>
+</section>

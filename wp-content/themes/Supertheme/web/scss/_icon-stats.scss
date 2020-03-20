@@ -1,0 +1,22 @@
+.icon-stats {
+  padding: $global-padding*4 0;
+  text-align: center;
+  background-color: get-color(primary);
+  color: $white;
+  h2 {
+    margin-bottom: rem-calc(50px);
+  }
+  img {
+    display: block;
+    margin: 0 auto rem-calc(25px);
+    @include breakpoint(medium) {
+      height: rem-calc(100px);
+    }
+  }
+  .content {
+    margin-bottom: $global-margin*4;
+    @include breakpoint(medium) {
+      margin-bottom: 0
+    }
+  }
+}

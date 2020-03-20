@@ -1,0 +1,29 @@
+.header {
+  text-align: center;
+  color: $white;
+  background-color: get-color(primary);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  padding: $global-padding*4 0;
+  position: relative;
+  transition: padding 500ms linear;
+  @include breakpoint(medium) {
+    padding: $global-padding*6 0;
+  }
+  @include breakpoint(large) {
+    padding: $global-padding*8 0;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: get-color(primary);
+    opacity: 0.4;
+  }
+  .row { position: relative;}
+  h1 { font-weight: $global-weight-bold; }
+}

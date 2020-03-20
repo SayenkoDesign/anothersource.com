@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+{% block header %}
+    {% if header is not defined or header %}
+        <header
+                class="header"
+                {% if post.thumbnail is not null %}
+                    style="background-image: url('{{ function("get_the_post_thumbnail_url", post.ID, 'fullscreen' ) }}')"
+                {% endif %}
+        >
+            {% if post.thumbnail is not null %}<div class="overlay"></div>{% endif %}
+            <div class="row column">
+                {% block title %}
+                    <p>{{ post_categories }}
+                    {% if post.get_field('header_title') %}
+                        <h1>{{ post.get_field('header_title') }}</h1>
+                    {% else %}
+                        <h1>{{ post.title }}</h1>
+                    {% endif %}
+                    <p>{{ post.date|date('M Y') }}</p>
+                    
+                {% endblock %}
+            </div>
+            
+            <a href="{{ post.get_author.link() }}" class="author">
+                <img src="{{ post.get_author.avatar.src }}" />
+                <p class="name">
+                    {{ post.get_author.display_name }}
+                </p>
+            </a>
+            
+        </header>
+    {% endif %}
+{% endblock %}
+{% block body %}
+    <section class="post-type-{{post.post_type}} two-columns">
+         <div class="row">
+            <div class="small-12 large-9 columns">
+                <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+                     <div>
+                        {{post.content}}
+                    </div>
+                </article>
+                <div class="share">
+                    {% include 'panels/sharethis.html.twig' with {sharethis: sharethis, title: true} only %}
+                </div>
+            </div>
+            <aside class="small-12 large-3 columns sidebar">
+                {{ sidebar }}
+            </aside>
+        </div>
+    </section>
+{% endblock %}

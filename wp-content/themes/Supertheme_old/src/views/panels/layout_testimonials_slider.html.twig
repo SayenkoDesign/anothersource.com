@@ -1,0 +1,35 @@
+<section class="testimonials-slider">
+    {% if panel.testimonials_title %}
+        <div class="row">
+            <div class="column">
+                <h2>{{ panel.testimonials_title }}</h2>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row columns">
+        <div class="slide-wrapper">
+            <div class="slick">
+                {% for testimony in panel.testimonials %}
+                    <div class="testimony align-center">
+                        <div class="row align-center">
+                            <div class="small-12 medium-8 large-6">
+                                <a href="{{ testimony.testimony_author_link }}" target="_blank">
+                                    <img src="{{ TimberImage(testimony.testimony_headshot).src|resize(128,128,true) }}" class="logo"/>
+                                </a>
+                                <div class="quote">
+                                    <blockquote>
+                                        {{ testimony.testimony_content }}
+                                    </blockquote>
+                                    <cite>
+                                        {{ testimony.testimony_author }}
+                                    </cite>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

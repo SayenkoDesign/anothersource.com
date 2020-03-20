@@ -1,0 +1,77 @@
+.content-columns {
+  .introduction {
+    padding: $global-padding*3 0;
+    text-align: center;
+    color: get-color(primary);
+  }
+  .icons {
+    .panel {
+      position: relative;
+      background-color: get-color(primary);
+      margin-bottom: rem-calc(30px);
+      height: rem-calc(320px);
+      box-shadow: 0 0 20px 2px #ACBDCB;
+      &:hover .details {
+        display: block;
+      }
+    }
+    .overview {
+      position: relative;
+      display: block;
+      color: $white;
+      text-align: center;
+      padding: rem-calc(20px);
+      @include breakpoint(large) {
+        padding: rem-calc(45px) rem-calc(52px) rem-calc(26px) rem-calc(52px);
+      }
+      img {
+        max-height: rem-calc(100px);
+        margin-bottom: rem-calc(64px);
+      }
+      h4 {
+        margin-bottom: rem-calc(10px);
+      }
+    }
+    .details {
+      position: absolute;
+      top:0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: none;
+      color: $white;
+      background-color: get-color(primary-hover);
+      padding: rem-calc(20px);
+      @include breakpoint(large) {
+        padding: rem-calc(26px) rem-calc(52px);
+      }
+      .row {
+        height: 100%;
+      }
+      .border {
+        @include breakpoint(medium) {
+          border-left: 2px solid $white;
+        }
+      }
+      h4 {
+        @include breakpoint(medium) {
+          margin-bottom: 0;
+          font-size: rem-calc(20px);
+        }
+      }
+      ul {
+        margin: 0;
+      }
+      li {
+        line-height:rem-calc(20px);
+        margin-bottom: $global-padding;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+      a {
+        color: $white;
+      }
+    }
+  }
+}

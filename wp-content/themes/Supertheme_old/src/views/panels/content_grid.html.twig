@@ -1,0 +1,14 @@
+<section class="content-grid">
+    <div class="row small-up-1 medium-up-2">
+        {% for row in panel.content_grid_row %}
+            <div class="column">
+                <h2>{{ row.content_grid_left_title }}</h2>
+                {{ row.content_grid_left_content }}
+            </div>
+            <div class="column">
+                <h2>{{ row.content_grid_right_title }}</h2>
+                {{ row.content_grid_right_content }}
+            </div>
+        {% endfor %}
+    </div>
+</section>

@@ -1,0 +1,62 @@
+.contact {
+  padding: $global-padding*4 0;
+  color: $white;
+  text-align: center;
+  background-color: get-color(primary);
+  background-size: cover;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    background-color: $black;
+    opacity: 0.4;
+  }
+  .row {
+    position: relative;
+    z-index: 1;
+  }
+  h2 {
+    font-weight: $global-weight-bold;
+    margin-bottom: rem-calc(8px);
+  }
+  h3 {
+    font-size: rem-calc(24px);
+    margin-bottom: $global-padding*2;
+  }
+  .divider {
+    display: inline-block;
+    margin: 0 rem-calc(16px);
+  }
+  .shrink {
+    @include breakpoint(small only) {
+      width: 100%;
+    }
+    @include breakpoint(medium) {
+      min-width: rem-calc(600px);
+    }
+  }
+  .fa {
+    color: $white;
+  }
+  select {
+    margin-bottom: $global-padding*2;
+    color: $dark-gray;
+  }
+  .gform_button {
+    margin-bottom: $global-padding*2;
+    &:hover {
+      background-color: scale_color(get-color(warning), $lightness: -14%);
+    }
+  }
+  .linkedin {
+    display: inline-block;
+    width: rem-calc(56px);
+    height: rem-calc(51px);
+    background-image: url("../images/LinkedIn logo.png");
+  }
+}

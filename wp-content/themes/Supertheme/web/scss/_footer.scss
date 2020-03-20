@@ -1,0 +1,11 @@
+.footer {
+  color: $white;
+  text-align: center;
+  font-size: rem-calc(14px);
+  background-color: get_color(secondary);
+  padding: $global-padding*2 0;
+
+  .copyright p:last-of-type {
+    margin: 0;
+  }
+}

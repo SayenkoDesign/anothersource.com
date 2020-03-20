@@ -1,0 +1,174 @@
+.no-js {
+  .mobile-menu-bar, #small-menu {
+    display: none;
+  }
+}
+.admin-bar .sticky.is-stuck {
+  top: 32px !important;
+  @media screen and (max-width:782px) {
+    top: 46px !important;
+  }
+  @media screen and (max-width:600px) {
+    top: 0 !important;
+  }
+}
+.sticky-container {
+  .home {
+    display: inline-block;
+  }
+  .large-menu {
+    padding: rem-calc(10px) 0 rem-calc(20px) 0;
+    
+    .home {
+        padding-left: rem-calc(12px);   
+        
+        @include breakpoint(xlarge) {
+            padding-left: 0;
+        }
+    }
+    
+    nav {
+      a {
+        line-height: rem-calc(24px);
+        color: $dark-gray;
+        font-size: rem-calc(16px);
+        padding: rem-calc(22px) rem-calc(12px);
+        transition: color 500ms linear;
+        position: relative;
+        
+        @include breakpoint(large) {
+            padding: rem-calc(22px);
+            font-size: rem-calc(18px);
+        }
+        
+        
+        &:hover {
+          color: get-color(primary);
+        }
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          left: rem-calc(32px) !important;
+          right: rem-calc(32px) !important;
+          bottom: rem-calc(16px);
+          top: auto;
+          height: rem-calc(3px) !important;
+          width: auto !important;
+          border: none !important;
+          margin: 0 !important;
+          background-color: transparent;
+        }
+        &:hover::after {
+          background-color: get-color(primary);
+        }
+      }
+      .current-menu-item a::after {
+        background-color: get-color(primary-hover);
+      }
+      .is-dropdown-submenu {
+        border: none;
+      }
+      .submenu {
+        a {
+          padding: rem-calc(18px);
+          border: 1px solid $light-gray;
+          border-bottom: none;
+          transition: color 500ms linear, background-color 500ms linear;
+          &:hover {
+            background-color: get-color(primary);
+            color: $white;
+          }
+          &:after {
+            display: none;
+          }
+        }
+        .current-menu-item a {
+          background-color: get-color(primary-hover);
+          color: $white;
+          &::after {
+            display: none
+          }
+          &:hover {
+            background-color: get-color(primary);
+          }
+        }
+      }
+      .submenu li:last-of-type a {
+        border-bottom: 1px solid $light-gray;
+      }
+    }
+    .dropdown.menu > li.is-dropdown-submenu-parent > a {
+      padding-right: rem-calc(18px);
+      &::after {
+        left: rem-calc(32px) !important;
+        right: rem-calc(31px) !important;
+      }
+    }
+    .dropdown.menu.align-right .is-dropdown-submenu.first-sub {
+      top: 100%;
+      right: auto;
+      left: rem-calc(12px);
+      
+      @include breakpoint(large) {
+        left: rem-calc(22px);
+        }
+    }
+  }
+  .mobile-menu-bar {
+    padding: rem-calc(7px) 0 rem-calc(14px) 0;
+    position: relative;
+    z-index: 15;
+    @include breakpoint(medium){
+      display: none;
+    }
+    a {
+      display: inline-block;
+    }
+    .fa {
+      font-size: 0;
+      margin-top: rem-calc(7px);
+    }
+    .fa-phone {
+      display: block;
+      width: 33px;
+      height: 33px;
+      background-image: url("../images/phone-icon.png");
+    }
+    .fa-bars {
+      display: block;
+      width: 38px;
+      height: 34px;
+      background-image: url("../images/menu-icon.png");
+    }
+  }
+  .mobile-menu {
+    background-color: get-color(primary-hover);
+    position: relative;
+    z-index: 10;
+    .button {
+      text-align: left;
+      font-family: $header-font-family;
+      font-size: rem-calc(16px);
+      font-weight: $global-weight-bold;
+      color: $white;
+      padding: rem-calc(14px) rem-calc(28px);
+    }
+    .menu {
+      a {
+        color: $white;
+        font-family: $header-font-family;
+        font-size: rem-calc(16px);
+        font-weight: $global-weight-bold;
+        padding: rem-calc(14px) rem-calc(28px);
+      }
+      .menu {
+        margin-left: rem-calc(20px);
+        a {
+          font-weight: $global-weight-normal;
+          color: $medium-gray;
+        }
+      }
+    }
+  }
+}

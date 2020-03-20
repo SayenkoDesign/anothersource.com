@@ -1,0 +1,19 @@
+<section class="jobs-slider">
+    <div class="row">
+        <div class="column">
+            <h2>Recent Job Searches</h2>
+        </div>
+    </div>
+    <div class="row columns">
+        <div class="slide-wrapper">
+            <div class="slick-jobs">
+                {% for job in panel.jobs %}
+                    <div class="job">
+                        <h4 class="position">{{ job.job_position }}</h4>
+                        <div class="location">{{ job.job_location }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

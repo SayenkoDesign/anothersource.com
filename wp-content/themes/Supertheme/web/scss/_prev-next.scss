@@ -1,0 +1,44 @@
+.prev-next {
+  padding: $global-padding;
+  background-color: $light-gray;
+  position: relative;
+  &::after {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    margin-top: rem-calc(-16px);
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: rem-calc(64px) solid transparent;
+    border-right: rem-calc(64px) solid transparent;
+    border-top: rem-calc(48px) solid $light-gray;
+  }
+  .prev, .next {
+    width: rem-calc(97px);
+    @include breakpoint(small only) {
+      margin-bottom: $global-margin;
+    }
+  }
+  .prev a {
+    display: inline-block;
+    width: rem-calc(67px);
+    height: rem-calc(67px);
+    background-image: url("../images/arrow-icon-gray.png");
+    transform: scaleX(-1);
+  }
+  .next a {
+    display: inline-block;
+    width: rem-calc(67px);
+    height: rem-calc(67px);
+    background-image: url("../images/arrow-icon-gray.png");
+  }
+  img {
+    margin-bottom: $global-margin;
+    max-width: rem-calc(96px);
+  }
+  h3 {
+    font-size: rem-calc(24px);
+  }
+}

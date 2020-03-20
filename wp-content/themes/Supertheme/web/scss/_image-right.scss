@@ -1,0 +1,26 @@
+.image-right {
+  background-color: $light-gray;
+  width: 100%;
+  overflow: hidden;
+  .image {
+    overflow: hidden;
+    img {
+      min-width: 100%;
+      min-height: 100%;
+      max-width: none;
+      max-height: none;
+    }
+  }
+  .content {
+    padding: $global-padding !important;
+    @include breakpoint(large) {
+      padding: $global-padding*4 $global-padding*4  $global-padding*4 $global-padding !important;
+    }
+    h2 {
+      margin-bottom: $global-margin*2+rem-calc(20px);
+    }
+    li {
+      margin-bottom: rem-calc(20px);
+    }
+  }
+}

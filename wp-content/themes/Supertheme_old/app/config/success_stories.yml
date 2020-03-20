@@ -1,0 +1,49 @@
+key: "group_success_story"
+title: "Testimonial"
+location:
+  -
+    - { param: "post_type", operator: "==", value: "success_stories" }
+menu_order: 0
+position: "normal"
+style: "default"
+label_placement: "top"
+instruction_placement: label
+hide_on_screen: ["the_content"]
+fields:
+  -
+    key:  "field_testimonial_author"
+    label:  "Testimonial Author"
+    name:  "testimonial_author"
+    type:  "text"
+    instructions:  ""
+    required:  1
+    conditional_logic:  0,
+    wrapper:  { width:  "33", class:  "", id:  "" }
+  -
+    key:  "field_testimonial_content"
+    label:  "Testimonial Content"
+    name:  "testimonial_content"
+    type:  "textarea"
+    instructions:  ""
+    required:  1
+    conditional_logic:  0,
+    wrapper:  { width:  "33", class:  "", id:  "" }
+  -
+    key:  "field_testimonial_headshot"
+    label:  "Testimonial Headshot"
+    name:  "testimonial_headshot"
+    type:  "image"
+    instructions:  ""
+    required:  0
+    conditional_logic:  0,
+    wrapper:  { width:  "34", class:  "", id:  "" }
+    return_format:  "array"
+    preview_size:  "thumbnail"
+    library:  "all"
+    min_width:  ""
+    min_height:  ""
+    min_size:  ""
+    max_width:  ""
+    max_height:  ""
+    max_size:  ""
+    mime_types: ""

@@ -1,0 +1,31 @@
+.stats {
+  padding: $global-padding*3 0 ;
+  text-align: center;
+  &.background {
+    background-color: $light-gray;
+  }
+  h2 {
+    margin-bottom: rem-calc(50px);
+  }
+  .stat {
+    color: get-color(primary);
+    font-family: $code-font-family;
+    font-weight: $global-weight-bold;
+    font-size: rem-calc(100px);
+    line-height: rem-calc(150px);
+  }
+  .content {
+    color: $dark-gray;
+  }
+  .column {
+    @include breakpoint(small only){
+      flex: 1 0 auto;
+    }
+  }
+  .divider {
+    display: none;
+    @include breakpoint(large) {
+      display: flex;
+    }
+  }
+}

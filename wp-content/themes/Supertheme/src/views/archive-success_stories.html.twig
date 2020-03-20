@@ -1,0 +1,88 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {% if current_category is not defined %}
+        {% if post.get_field('header_title') %}
+            <h1>{{ post.get_field('header_title') }}</h1>
+        {% else %}
+            <h1>{{ post.title }}</h1>
+        {% endif %}
+        {% if post.get_field('header_subtitle') %}
+            <h2>{{ post.get_field('header_subtitle') }}</h2>
+        {% endif %}
+    {% else %}
+        <h1>{{ current_category.name }}</h1>
+    {% endif %}
+{% endblock %}
+{% block body %}
+    <section class="archive archive-success_stories ">
+        <div class="gradient"></div>
+        <div class="categories">
+            <ul class="horizontal menu align-center">
+                <li><a href="/success-stories" {% if current_category is not defined %}class="active"{% endif %}>All</a></li>
+                {% for category in categories %}
+                    <li><a href="{{ category.link }}" {% if category.id == current_category.term_id %}class="active"{% endif %}>{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="row content-wrapper">
+            <div class="small row">
+                <div class="small-12 columns">
+                    {% for post in posts %}
+                        {% if loop.index % 3 == 1 %}
+                            <div class="success_stories-teaser">
+                                <a href="{{ post.link }}">
+                                    {{ function("get_the_post_thumbnail", post.ID) }}
+                                    <h2>{{ post.title }}</h2></a>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="large row">
+                <div class="medium-4 columns">
+                    {% for post in posts %}
+                        {% if loop.index % 3 == 1 %}
+                            <div class="success_stories-teaser">
+                                <a href="{{ post.link }}">
+                                    {{ function("get_the_post_thumbnail", post.ID) }}
+                                    <h2>{{ post.title }}</h2>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="medium-4 columns">
+                    {% for post in posts %}
+                        {% if loop.index % 3 == 2 %}
+                            <div class="success_stories-teaser">
+                                <a href="{{ post.link }}">
+                                    {{ function("get_the_post_thumbnail", post.ID) }}
+                                    <h2>{{ post.title }}</h2></a>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="medium-4 columns">
+                    {% for post in posts %}
+                        {% if loop.index % 3 == 0 %}
+                            <div class="success_stories-teaser">
+                                <a href="{{ post.link }}">
+                                    {{ function("get_the_post_thumbnail", post.ID) }}
+                                    <h2>{{ post.title }}</h2></a>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row align-center">
+            <div class="small-12 columns">
+                {{ pagination }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

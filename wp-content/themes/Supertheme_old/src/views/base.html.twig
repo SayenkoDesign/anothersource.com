@@ -1,0 +1,182 @@
+<html {{ site.language_attributes }} class="no-js">
+<head>
+    {% block meta %}
+        <meta charset="{{ site.charset }}">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1">
+        <meta name="description" content="{{ site.description }}">
+        <link rel="pingback" href="{{ site.pingback_url }}" />
+
+        {% if favicon %}
+            <link rel="icon" type="image/x-icon" href="{{ favicon.url }}" />
+        {% endif %}
+
+        {% block meta_title %}
+            <title>
+                {% if wp_title %}
+                    {{ wp_title }} - {{ site.name }}
+                {% else %}
+                    {{ site.name }}
+                {% endif %}
+            </title>
+        {% endblock %}
+    {% endblock %}
+
+    {% block stylesheets %}
+        {{ function('wp_head') }}
+        {% if sharethis %}
+            <script type="text/javascript">var switchTo5x=true;</script>
+            {% if is_ssl %}
+                <script type="text/javascript" id="st_insights_js" src="https://ws.sharethis.com/button/buttons.js"></script>
+            {% else %}
+                <script type="text/javascript" id="st_insights_js" src="http://w.sharethis.com/button/buttons.js"></script>
+            {% endif %}
+            <script type="text/javascript">stLight.options({publisher: "{{ sharethis }}", doNotHash: true, doNotCopy: true, hashAddressBar: true});</script>
+        {% endif %}
+    {% endblock %}
+</head>
+<body class="{{ body_class }}">
+    {% block navi %}
+        <div data-sticky-container>
+            <div class="sticky" data-sticky data-sticky-on="small" data-top-anchor="sticky-start:top" data-margin-top="0" style="width:100%">
+                <div class="large-menu hide-for-small-only">
+                    <div class="row collapse align-middle">
+                        <div class="column">
+                            {% if logo.url %}
+                                <a href="{{ site.link }}" class="home"><img src="{{ logo.url }}" alt="{{ site.title }}"></a>
+                            {% else %}
+                                <a href="{{ site.link }}" class="home">{{ site.title }}</a>
+                            {% endif %}
+                        </div>
+                        <div class="column">
+                            <nav>
+                                {% if menu is defined %}
+                                    {% include 'menu-dropdown.html.twig' %}
+                                {% endif %}
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu-bar" data-responsive-toggle="small-menu" data-hide-for="medium">
+                    <div class="row align-middle">
+                        <div class="shrink column">
+                            {% if phone_numbers and phone_numbers[0].phone_number  %}
+                                <a href="tel:{{ phone_numbers[0].phone_number | preg_replace("/[^A-Za-z0-9 ]/", "") }}"><i class="fa fa-phone"></i></a>
+                            {% endif %}
+                        </div>
+                        <div class="expand column text-center">
+                            {% if mobile_logo.url %}
+                                <a href="{{ site.link }}" class="home"><img src="{{ mobile_logo.url }}" alt="{{ site.title }}"></a>
+                            {% else %}
+                                <a href="{{ site.link }}" class="home">{{ site.title }}</a>
+                            {% endif %}
+                        </div>
+                        <div class="shrink column">
+                            <a data-toggle><i class="fa fa-bars"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu hide-for-medium" id="small-menu" data-toggler data-animate="slide-in-down slide-out-up">
+                    <a href="{{ talent_page }}" class="expanded primary button">Find Talent</a>
+                    {% if menu is defined %}
+                        {% include 'menu-mobile.html.twig' %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block header %}
+        {% if header is not defined or header %}
+            <header
+                    class="header"
+                    {% if post.get_field('header_image') %}
+                        style="background-image: url('{{ TimberImage(post.get_field('header_image')) }}')"
+                    {% endif %}
+            >
+                {% if post.get_field('header_image') %}<div class="overlay"></div>{% endif %}
+                <div class="row column">
+                    {% block title %}
+                        {% if post.get_field('header_title') %}
+                            <h1>{{ post.get_field('header_title') }}</h1>
+                        {% else %}
+                            <h1>{{ post.title }}</h1>
+                        {% endif %}
+                        {% if post.get_field('header_subtitle') %}
+                            <h2>{{ post.get_field('header_subtitle') }}</h2>
+                        {% endif %}
+                    {% endblock %}
+                </div>
+            </header>
+        {% endif %}
+    {% endblock %}
+    <div id="sticky-start"></div>
+    {% block body %}
+        <main class="content">
+            <div class="row column">
+                <article>
+                    {% block content %}
+                        {{ post.content }}
+                    {% endblock %}
+                </article>
+            </div>
+        </main>
+    {% endblock %}
+
+    {% block scroll %}
+        <a class="scroll-top"><i class="fa fa-angle-up"></i></a>
+    {% endblock %}
+
+    {% block contact %}
+        {% if show_form %}
+            <section class="contact" style="background-image: url('{{ form_background.url }}')">
+                <div class="row">
+                    <div class="column">
+                        <h2>Contact Us</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <h3>
+                            {% for number in phone_numbers %}
+                                {{ number.phone_number }}
+                                {% if not loop.last %} <span class="divider">|</span> {% endif %}
+                            {% endfor %}
+                        </h3>
+                    </div>
+                </div>
+                <div class="row align-center">
+                    <div class="shrink column">
+                        {{ function('do_shortcode', '[gravityform id=1 title=false description=false ajax=true tabindex=49]') }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        {% if linkedin %}
+                            <a href="{{ linkedin }}" target="_blank" class="linkedin"></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    {% endblock %}
+
+    {% block footer %}
+        <footer class="footer">
+            <div class="row">
+                <div class="column copyright {% if not copyright %}text-center{% endif %}">
+                    {% if copyright %}
+                        {{ copyright }}
+                    {% else %}
+                        Copyright {{"now"|date('Y')}}
+                    {% endif %}
+                </div>
+        </footer>
+    {% endblock %}
+
+    {% block scripts %}
+       {{ function('wp_footer') }}
+    {% endblock %}
+</body>
+</html>

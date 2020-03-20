@@ -1,0 +1,26 @@
+.jobs-slider {
+  background-color: $light-gray;
+  padding: $global-padding*4 0 $global-padding*9;
+  text-align: center;
+  .slide-wrapper {
+    margin: 0 rem-calc(70px);
+  }
+  .slick-next {
+    top: 50%;
+    transform: translateY(-50%);
+    right: auto;
+    left: 100%;
+  }
+  .slick-prev {
+    top: 50%;
+    transform: translateY(-50%) scaleX(-1);
+    left: auto;
+    right: 100%;
+  }
+  h2 {
+    margin-bottom: rem-calc(60px);
+  }
+  h4 {
+    color: get-color(primary);
+  }
+}

@@ -1,0 +1,11 @@
+<section
+        class="centered-content {% if panel.centered_background_color %}background{% endif %}"
+        {% if panel.centered_id %}id="{{ panel.centered_id }}"{% endif %}
+>
+    <div class="row align-center">
+        <div class="small-12 medium-8 large-6 columns">
+            {% if panel.centered_title %}<h2>{{ panel.centered_title }}</h2>{% endif %}
+            {{ panel.centered_content }}
+        </div>
+    </div>
+</section>

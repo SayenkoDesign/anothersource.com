@@ -1,0 +1,42 @@
+{% extends "blog-base.html.twig" %}
+
+{% block body %}
+    <section class="archive two-columns">
+        <div class="row content-wrapper">
+            <div class="small-12 large-9 columns">
+                <div id="posts-container">
+                
+                {% if fn( 'count', posts ) == 0 %}
+                    {{ __('Sorry, no results were found.', 'sage') }}
+                {% endif %}
+                
+                {% for post in posts %}
+                
+                    <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+                            <div class="wrap">
+                            <a href="{{ post.link }}">
+                            {{ function("get_the_post_thumbnail", post.ID, 'large' ) }}
+                            </a>
+                            <div class="entry-content">
+                                <h4><a href="{{ post.link }}">{{post.title}}</a></h4>
+                                <div class="author">
+                                     <p class="name small">
+                                        By <a href="{{ post.get_author.link() }}" class="author">{{ post.get_author.display_name }}</a>
+                                    </p>
+                                </div>
+                                <div class="excerpt">
+                                    {{post.get_preview(50)}}
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                {% endfor %}
+                </div><!-- end posts-container-->
+            </div>             
+            <aside class="small-12 large-3 columns sidebar">
+                {{ sidebar }}
+            </aside>
+        </div>
+    </section>
+{% endblock %}

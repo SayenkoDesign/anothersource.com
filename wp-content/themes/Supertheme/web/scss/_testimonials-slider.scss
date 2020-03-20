@@ -1,0 +1,105 @@
+.testimonials-slider {
+  padding: $global-padding*4 0;
+  background-color: $light-gray;
+  text-align: center;
+  .slide-wrapper {
+    margin: 0 rem-calc(70px);
+    @include breakpoint(small only) {
+      margin: 0 rem-calc(40px);
+    }
+  }
+  .slick-next {
+    top: 50%;
+    transform: translateY(-50%);
+    right: auto;
+    left: 100%;
+    @include breakpoint(small only) {
+      transform: translateY(-50%) scale(0.5);
+      left: calc(100% - 10px);
+    }
+  }
+  .slick-prev {
+    top: 50%;
+    transform: translateY(-50%) scaleX(-1);
+    left: auto;
+    right: 100%;
+    @include breakpoint(small only) {
+      transform: translateY(-50%) scale(-0.5, 0.5);
+      right: calc(100% - 10px);
+    }
+  }
+  .align-center {
+    margin: 0;
+  }
+  h2 {
+    margin-bottom: rem-calc(44px);
+  }
+  a {
+    display: inline-block;
+  }
+  img {
+    border-radius: 100%;
+    margin:0 auto rem-calc(24px);
+    border: 4px solid get-color(primary-hover);
+  }
+  .quote {
+    position: relative;
+    &::before {
+      @include breakpoint(medium) {
+        position: absolute;
+        content: "";
+        display: block;
+        background-image: url("../images/quotes-gray.png");
+        width: rem-calc(100px);
+        height: rem-calc(85px);
+        top: rem-calc(-50px);
+        left: rem-calc(-60px);
+      }
+    }
+  }
+  blockquote {
+    position: relative;
+    font-family: $header-font-family;
+    font-weight: $global-weight-bold;
+    font-style: italic;
+    line-height: rem-calc(31px);
+    color: $black;
+    padding: 0;
+    border: none;
+    margin-bottom: rem-calc(30px);
+    @include breakpoint(small only) {
+      font-size: rem-calc(16px);
+    }
+  }
+  cite {
+    font-size: rem-calc(18px);
+    color: $dark-gray;
+    margin-bottom: rem-calc(26px);
+  }
+  .button {
+    font-size: rem-calc(16px);
+    font-weight: $global-weight-bold;
+    line-height: rem-calc(22px);
+    color: $white;
+    padding: rem-calc(9px) rem-calc(25px);
+    text-transform: uppercase;
+    margin: 0;
+    @include breakpoint(small only) {
+      font-size: rem-calc(12px);
+      padding: rem-calc(9px) rem-calc(16px);
+    }
+    .fa {
+      position: relative;
+      font-size: rem-calc(25px);
+      line-height: rem-calc(22px);
+      top: rem-calc(2.5px);
+      padding-left: rem-calc(24px);
+      @include breakpoint(small only) {
+        display: none;
+      }
+    }
+    &:hover {
+      color: $white;
+    }
+  }
+}

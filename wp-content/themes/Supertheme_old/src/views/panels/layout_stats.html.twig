@@ -1,0 +1,20 @@
+<section class="stats {% if panel.stat_background_color %}background{% endif %}">
+    {% if panel.stat_section_title %}
+        <div class="row columns">
+            <h2>{{ panel.stat_section_title }}</h2>
+        </div>
+    {% endif %}
+    <div class="row align-center">
+        {% for stat in panel.stats %}
+            <div class="column">
+                <div class="stat">{{ stat.stat_title }}</div>
+                <div class="content">{{ stat.stat_content }}</div>
+            </div>
+            {% if not loop.last %}
+                <div class="shrink column divider">
+                    <img src="{{ theme_url }}/web/images/Line.png" alt="divider" />
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>

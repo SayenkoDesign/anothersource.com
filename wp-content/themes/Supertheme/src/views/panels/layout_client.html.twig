@@ -1,0 +1,27 @@
+<section class="clients">
+    {% if panel.client_title %}
+        <div class="row">
+            <div class="column">
+                <h2>{{ panel.client_title }}</h2>
+            </div>
+        </div>
+    {% endif %}
+    <div class="logos">
+        {% for row in panel.client_logos %}
+            <div class="row small-up-2 medium-up-3 large-up-4">
+                <div class="column">
+                    <img src="{{ row.client_logo_1.url }}" alt="{{ row.client_logo_1.title }}" />
+                </div>
+                <div class="column">
+                    <img src="{{ row.client_logo_2.url }}" alt="{{ row.client_logo_2.title }}" />
+                </div>
+                <div class="column">
+                    <img src="{{ row.client_logo_3.url }}" alt="{{ row.client_logo_3.title }}" />
+                </div>
+                <div class="column">
+                    <img src="{{ row.client_logo_4.url }}" alt="{{ row.client_logo_4.title }}" />
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

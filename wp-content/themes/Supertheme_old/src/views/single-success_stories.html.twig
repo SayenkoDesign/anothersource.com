@@ -1,0 +1,29 @@
+{% extends "page.html.twig" %}
+
+{% block header %}
+    {% if header is not defined or header %}
+        <header
+                class="header"
+                {% if post.get_field('header_image') %}
+                    style="background-image: url('{{ TimberImage(post.get_field('header_image')) }}')"
+                {% endif %}
+        >
+            {% if post.get_field('header_image') %}<div class="overlay"></div>{% endif %}
+            <div class="row column">
+                {% for term in post.terms %}
+                    <a href="{{ term.link }}" class="hollow button">{{ term.name }}</a>
+                {% endfor %}
+                {% block title %}
+                    {% if post.get_field('header_title') %}
+                        <h1>{{ post.get_field('header_title') }}</h1>
+                    {% else %}
+                        <h1>{{ post.title }}</h1>
+                    {% endif %}
+                    {% if post.get_field('header_subtitle') %}
+                        <h2>{{ post.get_field('header_subtitle') }}</h2>
+                    {% endif %}
+                {% endblock %}
+            </div>
+        </header>
+    {% endif %}
+{% endblock %}

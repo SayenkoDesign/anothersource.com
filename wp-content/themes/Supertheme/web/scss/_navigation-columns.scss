@@ -1,0 +1,52 @@
+.navigation-columns {
+  color: get-color(primary);
+  padding: $global-padding*4 0 $global-padding*2;
+  .introduction {
+    h2 {
+      margin-bottom: rem-calc(36px);
+    }
+    text-align: center;
+    margin-bottom: $global-margin*5;
+  }
+  .icons {
+    .box {
+      display: block;
+      text-align: center;
+      box-shadow: 0 0 20px 2px #ACBDCB;
+      background-color: get-color(primary);
+      color: $white;
+      transition: background-color 500ms linear, padding 500ms linear;
+      margin-bottom: $global-padding*2;
+      padding: rem-calc(20px) rem-calc(20px) rem-calc(20px+67px) rem-calc(20px);
+      position: relative;
+      @include breakpoint(medium) {
+        padding: rem-calc(30px) rem-calc(30px) rem-calc(30px+67px) rem-calc(30px);
+      }
+      @include breakpoint(large) {
+        padding: rem-calc(45px) rem-calc(45px) rem-calc(45px+67px) rem-calc(45px);
+      }
+      &:hover {
+        background-color: get-color(primary-hover);
+      }
+    }
+    img {
+      margin-bottom: rem-calc(14px);
+      height: rem-calc(140px);
+    }
+    h4 {
+      margin-bottom: rem-calc(14px);
+    }
+    .content {
+      margin-bottom: rem-calc(40px);
+    }
+    .navigation-icon {
+      display: inline-block;
+      position: absolute;
+      bottom: $global-padding*2;
+      left: calc(50% - 33px);
+      width: rem-calc(67px);
+      height: rem-calc(67px);
+      background-image: url("../images/arrow-icon-white.png");
+    }
+  }
+}

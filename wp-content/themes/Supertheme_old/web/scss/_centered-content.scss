@@ -1,0 +1,12 @@
+.centered-content {
+  padding: $global-padding*4 0 ;
+  text-align: center;
+  color: $dark-gray;
+  &.background {
+    background-color: get-color(primary);
+    color: $white;
+  }
+  h2 {
+    margin-bottom: $global-margin*2;
+  }
+}
