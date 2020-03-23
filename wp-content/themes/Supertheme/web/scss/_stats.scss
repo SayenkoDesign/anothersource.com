@@ -16,10 +16,19 @@
   }
   .content {
     color: $dark-gray;
+    padding-left: $global-padding;
+    padding-right: $global-padding;
   }
+  
+  @include breakpoint(large) {
+      .two-column {
+        max-width:  rem-calc(1200/3*2); 
+      }
+  }
+  
   .column {
     @include breakpoint(small only){
-      flex: 1 0 auto;
+      flex: 1 0 100%;
     }
   }
   .divider {

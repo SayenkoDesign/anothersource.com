@@ -1,0 +1,5 @@
+Creating or editing fields
+
+- Create ACF fields
+- Export ACF to json
+- Convert json to yaml https://www.json2yaml.com/

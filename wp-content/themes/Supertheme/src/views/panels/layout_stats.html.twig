@@ -4,7 +4,7 @@
             <h2>{{ panel.stat_section_title }}</h2>
         </div>
     {% endif %}
-    <div class="row align-center">
+    <div class="row align-center {% if panel.stats|length < 3 %}two-column{% endif %}">
         {% for stat in panel.stats %}
             <div class="column">
                 <div class="stat">{{ stat.stat_title }}</div>

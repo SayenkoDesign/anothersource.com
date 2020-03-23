@@ -126,7 +126,7 @@ fields:
             name: "nav_icon_title"
             type: "text"
             instructions:
-            required: 1
+            required: 0
             conditional_logic: 0
             wrapper: { width: "", class: "", id: "" }
             default_value:  "Your time. Your talent. Your choice."
@@ -165,15 +165,25 @@ fields:
                 instructions:
                 required: 1
                 conditional_logic: 0
-                wrapper: { width: "50", class: "", id: "" }
+                wrapper: { width: "100", class: "", id: "" }
                 default_value:  ""
               -
                 key: "field_nav_icon_column_page"
                 label: "Page"
                 name: "nav_icon_column_page"
                 type: "page_link"
-                instructions:
-                required: 1
+                instructions: "You must choose a page, or a URL"
+                required: 0
+                conditional_logic: 0
+                wrapper: { width: "50", class: "", id: "" }
+                post_type: ["page", "post"]
+              - 
+                key: field_nav_icon_column_url
+                label: "URL"
+                name: "nav_icon_column_url"
+                type: "url"
+                instructions: "You must choose a page, or a URL"
+                required: 0
                 conditional_logic: 0
                 wrapper: { width: "50", class: "", id: "" }
                 post_type: ["page", "post"]
@@ -183,7 +193,7 @@ fields:
                 name: "nav_icon_column_content"
                 type: "wysiwyg"
                 instructions:
-                required: 1
+                required: 0
                 conditional_logic: 0
                 wrapper: { width: "50", class: "", id: "" }
                 tabs: "all"
@@ -560,8 +570,8 @@ fields:
             conditional_logic: 0
             wrapper: { width: "", class: "", id: "" }
             collapsed:
-            min: 4
-            max: 4
+            min: 2
+            max: 6
             layout: "block"
             button_label: "Add Row"
             sub_fields:

@@ -11,7 +11,7 @@
         <div class="row align-center small-up-1 medium-up-2 large-up-3" data-equalizer data-equalize-on="medium">
             {% for column in panel.nav_icon_columns_logos %}
                 <div class="column">
-                    <a href="{{ column.nav_icon_column_page }}" class="box" data-equalizer-watch>
+                    <a href="{% if column.nav_icon_column_url %}{{ column.nav_icon_column_url }}{% else %}{{ column.nav_icon_column_page }}{% endif %}" class="box" data-equalizer-watch {% if column.nav_icon_column_url %}target="_blank"{% endif %}>
                         <img src="{{ column.nav_icon_column_icon.url }}" alt="{{ column.nav_icon_column_icon.title }}">
                         <h4>{{ column.nav_icon_column_title }}</h4>
                         <div class="content">{{ column.nav_icon_column_content }}</div>
