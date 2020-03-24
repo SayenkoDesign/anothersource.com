@@ -73,18 +73,18 @@ add_filter('timber/context', function($data) {
     $data['next'] = get_next_post_link("%link", "");
 
     $data['form_background'] = get_field("footer_form_background", "option");
+    
+    $data['footer_form_id'] = get_field("footer_form_id", "option");
 
     $data['theme_url'] = get_stylesheet_directory_uri();
 
     $data['success_stories_url'] = get_post_type_archive_link('success_stories');
 
     $data['show_form'] = !get_field("footer_contact_form");
-
+    
     return $data;
 
 });
-
-
 
 //extend timber
 

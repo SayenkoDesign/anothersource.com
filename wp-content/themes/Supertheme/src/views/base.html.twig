@@ -148,7 +148,9 @@
                 </div>
                 <div class="row align-center">
                     <div class="shrink column">
-                        {{ function('do_shortcode', '[gravityform id=1 title=false description=false ajax=true tabindex=49]') }}
+                        {% filter shortcodes %}
+                        [gravityform id="{{footer_form_id}}" title=false description=false ajax=true tabindex=49]
+                        {% endfilter %}
                     </div>
                 </div>
                 <div class="row">
