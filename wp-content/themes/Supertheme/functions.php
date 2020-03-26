@@ -163,3 +163,22 @@ add_filter('nav_menu_css_class', 'set_current_menu_class',1,2);
 function remove_parent_classes($class){
   return in_array( $class, array( 'current_page_item', 'current_page_parent', 'current_page_ancestor', 'current-menu-item' ) )  ? FALSE : TRUE;
 }
+
+
+add_action( 'wp_footer', 'as_add_cta_form' );
+
+function as_add_cta_form() {
+    
+    
+?>
+    <div id="lets-talk" class="lets-talk-lightbox" style="display: none;">
+        <div class="row">
+            <div class="small-12 columns">
+                <?php
+                echo do_shortcode( '[gravityform id="4" title="false" description="false" ajax="true" tabindex="993"]' );
+                ?>
+            </div>
+        </div>
+    </div>   
+    <?php
+}

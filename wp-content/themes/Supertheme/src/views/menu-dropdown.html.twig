@@ -2,7 +2,11 @@
     <ul class="horizontal dropdown menu align-right" data-dropdown-menu>
         {% for item in menu.get_items %}
             <li class="{{item.classes | join(' ')}} {% if item.get_children %}is-dropdown-submenu-parent{% endif %}">
-                <a href="{{item.get_link}}">{{item.title}}</a>
+                {% if "lets-talk" in item.classes %}
+                    <a href="{{item.get_link}}" class="button" data-fancybox data-src="#lets-talk" href="javascript:;">{{item.title}}</a>
+                {% else %}
+                    <a href="{{item.get_link}}">{{item.title}}</a>
+                {% endif %}
                 {% if item.get_children %}
                     <ul class="menu">
                         {% for child in item.get_children %}

@@ -61,6 +61,27 @@ ul.check {
     }
   }
 }
+
+.validation_error {
+    color: #f00;
+    padding-bottom: rem-calc(20);   
+}
+
+.contact .validation_error {
+    color: #fff;
+}
+
+.validation_message {
+    color: #f00;
+    font-size: rem-calc(14);
+    transform: translateY(-15px);   
+}
+
+.contact .validation_message {
+    color: #fff;
+    text-align: left;
+}
+
 .layout_image_left, .centered-content.background, .icon-stats {
   ul.check li::before {
     background-image: url('../images/checkmark-white.png');

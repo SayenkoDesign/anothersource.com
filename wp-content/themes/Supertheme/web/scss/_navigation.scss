@@ -20,7 +20,11 @@
     padding: rem-calc(10px) 0 rem-calc(20px) 0;
     
     .home {
-        padding-left: rem-calc(12px);   
+        padding-left: rem-calc(12px);  
+        
+        @include breakpoint(medium down) {
+            max-width: 140px;
+        }
         
         @include breakpoint(xlarge) {
             padding-left: 0;
@@ -41,6 +45,15 @@
             font-size: rem-calc(18px);
         }
         
+        &.button {
+            color: #fff;
+            padding: rem-calc(10 10);  
+            margin: rem-calc(12 5); 
+            
+            &:hover {
+                color: #fff;   
+            }
+        }
         
         &:hover {
           color: get-color(primary);
